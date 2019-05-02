@@ -1,1 +1,25 @@
 // Mixins in here
+
+
+.button (@background-color; @height){
+    width: 80%;
+    color: white;
+    background-color: @background-color;
+    border-radius: 15px;
+    height: @height;
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    font-size: 1.6rem;
+
+}
+
+.display (@display; @justify; @align) {
+    display: @display;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+.btn {
+    .button(rgb(11, 122, 89); 40px);
+    .display(flex;center;center);
+   
+}
