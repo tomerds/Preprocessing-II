@@ -10,10 +10,20 @@ nav {
     height: 100px;
     background-color: rgba(255, 255, 255, 0.9);
 
-    
+    @media @mobile {
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: white;
+
+       
+    }
 
     h1 {
         margin-left: 5%;
+
+        @media @mobile {
+            margin: 0;
+        }
     }
 
     ul {
@@ -23,6 +33,11 @@ nav {
         width: 300px;
         font-size: 1.6rem;
         margin-right: 5%;
+
+        @media @mobile {
+            margin: 0;
+            width: 100%;
+        }
     }
 
 

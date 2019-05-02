@@ -1,14 +1,16 @@
 // Mixins in here
 
 
-.button (@background-color; @height){
-    width: 80%;
+.button (@background-color; @height; @width){
+    width: @width;
     color: white;
     background-color: @background-color;
     border-radius: 15px;
     height: @height;
     box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
     font-size: 1.6rem;
+
+
 
 }
 
@@ -19,7 +21,45 @@
 }
 
 .btn {
-    .button(rgb(11, 122, 89); 40px);
+    .button(rgb(11, 122, 89); 40px; 80%);
     .display(flex;center;center);
+
+    @media @mobile {
+        .button(rgb(36, 188, 226); 40px; 100%);
+    }
+
+    .keyframes( bounce-in ;{
+		0% { opacity: 0; transform: scale(0)}
+        60% { opacity: 1; 
+        transform: scale(1.2); 
+        }
+        100% {transform: scale(1)}
+		});
+
+	.animation( bounce-in  2s linear infinite alternate)
+
    
 }
+
+img {
+    .keyframes( left-in ;{
+		0% { opacity: 0; transform: scale(0); transform: translateX(-200px)}
+        100% { opacity: 1; 
+        transform: scale(1); transform: translateX(0)}
+        });
+        
+    .animation( left-in 1s linear );
+}
+
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
+
+.animation(@arguments) {
+	-webkit-animation: @arguments;
+	-moz-animation: @arguments;
+	animation: @arguments;
+}
+
